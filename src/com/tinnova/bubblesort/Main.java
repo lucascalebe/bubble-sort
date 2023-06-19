@@ -14,24 +14,22 @@ public class Main {
   }
 
   public static void bubbleSort(int[] array) {
-    int length = array.length;
-    boolean isValueSwapped;
+    boolean isValueSwapped = true;
 
-    for (int i = 0; i < length - 1; i++) {
+    while (isValueSwapped) {
       isValueSwapped = false;
-
-      for (int j = 0; j < length - i - 1; j++) {
-        if (array[j] > array[j + 1]) {
-          int temp = array[j];
-          array[j] = array[j + 1];
-          array[j + 1] = temp;
+      for (int i = 0; i < array.length - 1; i++) {
+        if (array[i] > array[i + 1]) {
+          swap(array, i, i + 1);
           isValueSwapped = true;
         }
       }
-
-      if (!isValueSwapped) {
-        break;
-      }
     }
+  }
+
+  private static void swap(int[] array, int i, int j) {
+    int temp = array[i];
+    array[i] = array[j];
+    array[j] = temp;
   }
 }
